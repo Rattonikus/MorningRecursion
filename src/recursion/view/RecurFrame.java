@@ -9,10 +9,11 @@ public class RecurFrame extends JFrame
 	
 	private RecurPanel panel; 
 	
-	public RecurFrame()
+	public RecurFrame(Controller controller)
 	{
+		super();
 		this.controller = controller;
-		this.panel = new RecurPanel(controller);
+		this.panel = new RecurPanel(this.controller);
 		
 		setupFrame();
 	}
