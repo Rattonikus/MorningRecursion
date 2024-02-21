@@ -1,5 +1,7 @@
 package recursion.controller;
 
+import java.math.BigInteger;
+
 import recursion.model.RecursionDemo;
 import recursion.view.RecurFrame;
 
@@ -27,7 +29,7 @@ public class Controller
 		
 		result += RecursionDemo.factorialDemo(intVersion);
 		
-		result += "\n\n";
+		result += "\n";
 		
 		result += "The double version is :\n";
 		
@@ -37,7 +39,11 @@ public class Controller
 		
 		result += "\n\n";
 		
-		result += "Are they the same?";
+		result += "Are they the same? ";
+		
+		BigInteger large = new BigInteger(source);
+		
+		result += "The BigInteger version is : " + large.toString();
 		
 		return result;
 	}

@@ -1,5 +1,7 @@
 package recursion.model;
 
+import java.math.BigInteger;
+
 public class RecursionDemo 
 {
 	public static int factorialDemo(int number)
@@ -35,6 +37,18 @@ public class RecursionDemo
 		else
 		{
 			return fibonacciDemo(number - 1) + fibonacciDemo(number - 2);
+		}
+	}
+	
+	public static BigInteger factorialDemo(BigInteger number)
+	{
+		if(number.equals(BigInteger.ZERO) || number.equals(BigInteger.ONE))
+		{
+			return BigInteger.ONE;
+		}
+		else
+		{
+			return number.multiply(factorialDemo(number.subtract(BigInteger.ONE)));
 		}
 	}
 	
