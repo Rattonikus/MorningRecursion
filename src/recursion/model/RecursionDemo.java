@@ -4,6 +4,8 @@ import java.math.BigInteger;
 
 public class RecursionDemo 
 {
+	
+	//FACTORIAL 
 	public static int factorialDemo(int number)
 	{
 		if (number == 0 || number ==1)
@@ -28,6 +30,20 @@ public class RecursionDemo
 		}
 	}
 	
+	public static BigInteger factorialDemo(BigInteger number)
+	{
+		if(number.equals(BigInteger.ZERO) || number.equals(BigInteger.ONE))
+		{
+			return BigInteger.ONE;
+		}
+		else
+		{
+			return number.multiply(factorialDemo(number.subtract(BigInteger.ONE)));
+		}
+	}
+	
+	
+	//FIBONACCI
 	public static int fibonacciDemo(int number)
 	{
 		if (number <=1)
@@ -40,17 +56,6 @@ public class RecursionDemo
 		}
 	}
 	
-	public static BigInteger factorialDemo(BigInteger number)
-	{
-		if(number.equals(BigInteger.ZERO) || number.equals(BigInteger.ONE))
-		{
-			return BigInteger.ONE;
-		}
-		else
-		{
-			return number.multiply(factorialDemo(number.subtract(BigInteger.ONE)));
-		}
-	}
 	
 	public static int fibonacciIterative(int number)
 	{

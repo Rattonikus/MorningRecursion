@@ -71,6 +71,7 @@ public class RecurPanel extends JPanel
 	private void setupListeners()
 	{
 		factButton.addActionListener(click -> factorialLoad());
+		fibButton.addActionListener(click -> fibLoad());
 	}
 	
 	private void factorialLoad()
@@ -78,6 +79,15 @@ public class RecurPanel extends JPanel
 		String vaule = inputField.getText();
 		
 		String result = app.factorialInfo(vaule);
+		
+		resultArea.setText(result);
+	}
+	
+	private void fibLoad()
+	{
+		String value = inputField.getText();
+		
+		String result = app.fibonacciInfo(value);
 		
 		resultArea.setText(result);
 	}

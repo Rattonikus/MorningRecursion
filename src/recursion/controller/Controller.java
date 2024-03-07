@@ -17,8 +17,10 @@ public class Controller
 	
 	public void start()
 	{
-		this.window = new RecurFrame(this);
+		//this.window = new RecurFrame(this);
 
+		
+		System.out.println(fibonacciInfo("43"));
 	}
 	
 	public String factorialInfo(String source)
@@ -46,6 +48,24 @@ public class Controller
 		result += "The BigInteger version is : " + large.toString();
 		
 		return result;
+	}
+	
+	public String fibonacciInfo(String source) // An interesting observation. The bigger the number, the longer it takes to process, this seems to cap out around ~ 43
+	{
+		String result = "The fib of " + source + " is :\n";
+		
+		int intVersion = Integer.parseInt(source);
+		
+		result += RecursionDemo.fibonacciDemo(intVersion);
+		
+		result += "\n";
+		
+		result += "Doing the same iteravely results in :\n";
+		
+		result += RecursionDemo.fibonacciIterative(intVersion);
+		
+		return result;
+
 	}
 
 }
