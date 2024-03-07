@@ -35,10 +35,10 @@ public class RecurPanel extends JPanel
 		this.buttonPanel = new JPanel(new GridLayout(1,0));
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		this.resultArea = new JTextArea();
-		this.inputField = new JTextField("Numbers only");
+		this.inputField = new JTextField("Input Here");
 		this.fibButton = new JButton("Fibonacci");
 		this.factButton = new JButton("Factorial ");
-		this.stringButton = new JButton("Strubg recursion");
+		this.stringButton = new JButton("String recursion");
 		this.voidButton = new JButton("void recursion");
 		
 		setupPanel();
@@ -72,6 +72,7 @@ public class RecurPanel extends JPanel
 	{
 		factButton.addActionListener(click -> factorialLoad());
 		fibButton.addActionListener(click -> fibLoad());
+		stringButton.addActionListener(click -> stringLoad());
 	}
 	
 	private void factorialLoad()
@@ -87,7 +88,32 @@ public class RecurPanel extends JPanel
 	{
 		String value = inputField.getText();
 		
+		//Check so you dont blow up your pc like i did 
+		if (Integer.parseInt(value) >= 42)
+		{
+			int errordialoge = JOptionPane.showOptionDialog(null, "Fib over 42 can take a long time to compute, or will error out entirely. Continue?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, 0);
+			if (errordialoge == JOptionPane.NO_OPTION)
+			{
+				resultArea.setText("");
+			}
+			else
+			{
+				String result = app.fibonacciInfo(value);
+				
+				resultArea.setText(result);
+			}
+		}
+		
 		String result = app.fibonacciInfo(value);
+		
+		resultArea.setText(result);
+	}
+	
+	private void stringLoad()
+	{
+		String value = inputField.getText();
+		
+		String result = app.reverseInfo(value);
 		
 		resultArea.setText(result);
 	}

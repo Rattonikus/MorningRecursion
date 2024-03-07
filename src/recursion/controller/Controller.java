@@ -2,6 +2,8 @@ package recursion.controller;
 
 import java.math.BigInteger;
 
+import javax.swing.JOptionPane;
+
 import recursion.model.RecursionDemo;
 import recursion.view.RecurFrame;
 
@@ -17,10 +19,8 @@ public class Controller
 	
 	public void start()
 	{
-		//this.window = new RecurFrame(this);
-
+		new RecurFrame(this);
 		
-		System.out.println(fibonacciInfo("43"));
 	}
 	
 	public String factorialInfo(String source)
@@ -66,6 +66,17 @@ public class Controller
 		
 		return result;
 
+	}
+	
+	public String reverseInfo(String source)
+	{
+		String result = "You typed in " + source + "\n";
+		
+		result += "Reverse, that would look like this: \n";
+		result += RecursionDemo.reverse(source) + "\n";
+		result += "Can you try saying that?";
+		
+		return result;
 	}
 
 }
