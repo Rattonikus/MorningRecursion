@@ -88,5 +88,22 @@ public class RecursionDemo
 	    return reverse(str.substring(1)) + str.charAt(0);
 	}
 	
+	public static void countDown(int num)
+	{
+		if (num == 0)
+		{
+			System.out.println("We have reached the end o7");
+			return;
+		}
+		
+		System.out.println("Gimmie a " + num);
+		
+		int newNumber = num - 1;
+		
+		countDown(newNumber);
+	}
+	
+
+	
 
 }

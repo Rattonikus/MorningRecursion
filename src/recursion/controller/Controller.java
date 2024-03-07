@@ -78,5 +78,14 @@ public class Controller
 		
 		return result;
 	}
+	
+	public String voidInfro(String source)
+	{
+		String result = "Look in the console :3";
+		
+		RecursionDemo.countDown(Integer.parseInt(source));
+		
+		return result;
+	}
 
 }

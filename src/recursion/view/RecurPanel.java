@@ -73,6 +73,7 @@ public class RecurPanel extends JPanel
 		factButton.addActionListener(click -> factorialLoad());
 		fibButton.addActionListener(click -> fibLoad());
 		stringButton.addActionListener(click -> stringLoad());
+		voidButton.addActionListener(click -> voidLoad());
 	}
 	
 	private void factorialLoad()
@@ -114,6 +115,15 @@ public class RecurPanel extends JPanel
 		String value = inputField.getText();
 		
 		String result = app.reverseInfo(value);
+		
+		resultArea.setText(result);
+	}
+	
+	private void voidLoad()
+	{
+		String value = inputField.getText();
+		
+		String result = app.voidInfro(value);
 		
 		resultArea.setText(result);
 	}
