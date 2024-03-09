@@ -1,6 +1,7 @@
 package recursion.controller;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
@@ -12,6 +13,7 @@ public class Controller
 	
 	private RecurFrame window; 
 	
+	int[] someNums = {1,6,8,3,6,7,3,32,5};
 	
 	public Controller()
 	{
@@ -20,7 +22,6 @@ public class Controller
 	public void start()
 	{
 		new RecurFrame(this);
-		
 	}
 	
 	public String factorialInfo(String source)
@@ -64,6 +65,10 @@ public class Controller
 		
 		result += RecursionDemo.fibonacciIterative(intVersion);
 		
+		result += "\n running fib as a loop results in: \n";
+		
+		result += RecursionDemo.fibLoop(intVersion);
+		
 		return result;
 
 	}
@@ -86,6 +91,17 @@ public class Controller
 		RecursionDemo.countDown(Integer.parseInt(source));
 		
 		return result;
+	}
+	
+	public String useQuickSort()
+	{
+		String result = "This arrray of ints currently looks like this: \n";
+		result += Arrays.toString(someNums) + "\n";
+		RecursionDemo.quickSort(someNums, 0, someNums.length - 1);
+		result += "After sorting, its now: \n";
+		result += Arrays.toString(someNums) + "\n";
+
+		return result; 
 	}
 
 }

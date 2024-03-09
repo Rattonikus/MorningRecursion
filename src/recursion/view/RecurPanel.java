@@ -22,6 +22,7 @@ public class RecurPanel extends JPanel
 	private JButton factButton;
 	private JButton stringButton;
 	private JButton voidButton; 
+	private JButton sortButton; 
 
 	
 	public RecurPanel(Controller app)
@@ -40,6 +41,7 @@ public class RecurPanel extends JPanel
 		this.factButton = new JButton("Factorial ");
 		this.stringButton = new JButton("String recursion");
 		this.voidButton = new JButton("void recursion");
+		this.sortButton = new JButton("use quickSort");
 		
 		setupPanel();
 		setupListeners();
@@ -62,6 +64,7 @@ public class RecurPanel extends JPanel
 		this.buttonPanel.add(fibButton);
 		this.buttonPanel.add(stringButton);
 		this.buttonPanel.add(voidButton);
+		this.buttonPanel.add(sortButton);
 		
 		this.resultArea.setEnabled(true);
 		this.resultArea.setWrapStyleWord(true);
@@ -74,6 +77,7 @@ public class RecurPanel extends JPanel
 		fibButton.addActionListener(click -> fibLoad());
 		stringButton.addActionListener(click -> stringLoad());
 		voidButton.addActionListener(click -> voidLoad());
+		sortButton.addActionListener(click -> useSort());
 	}
 	
 	private void factorialLoad()
@@ -126,6 +130,11 @@ public class RecurPanel extends JPanel
 		String result = app.voidInfro(value);
 		
 		resultArea.setText(result);
+	}
+	
+	private void useSort()
+	{
+		resultArea.setText(app.useQuickSort());
 	}
 	
 	private void setupLayout()

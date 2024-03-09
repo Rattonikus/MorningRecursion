@@ -79,6 +79,21 @@ public class RecursionDemo
 		}
 	}
 	
+	public static int fibLoop(int number)
+	{
+		int fib = number;
+
+		
+		for(int i = 0; i <= number; i++)
+		{
+			fib = (fib - 1) + (fib - 2);
+		}
+		
+		return fib;
+	}
+	
+	//STRING
+	
 	public static String reverse(String str)
 	{
 	    if ((str == null) || (str.length() <= 1)) 
@@ -88,6 +103,8 @@ public class RecursionDemo
 	    return reverse(str.substring(1)) + str.charAt(0);
 	}
 	
+	
+	//VOID
 	public static void countDown(int num)
 	{
 		if (num == 0)
@@ -103,7 +120,41 @@ public class RecursionDemo
 		countDown(newNumber);
 	}
 	
-
+	//QUICK SORT
 	
+	public static void quickSort(int nums[], int begin, int end) //nums is an ARRAY of strings... dont forget
+	{
+	    if (begin < end) 
+	    {
+	        int partitionIndex = partition(nums, begin, end);
+
+	        quickSort(nums, begin, partitionIndex-1);
+	        quickSort(nums, partitionIndex+1, end);
+	    }
+	}
+
+	private static int partition(int nums[], int begin, int end) //same as before, also note how this method can stay private.
+	{
+	    int pivot = nums[end];
+	    int i = (begin-1);
+
+	    for (int n = begin; n < end; n++) 
+	    {
+	        if (nums[n] <= pivot) 
+	        {
+	            i++;
+
+	            int swapTemp = nums[i];
+	            nums[i] = nums[n];
+	            nums[n] = swapTemp;
+	        }
+	    }
+
+	    int swapTemp = nums[i+1];
+	    nums[i+1] = nums[end];
+	    nums[end] = swapTemp;
+
+	    return i+1;
+	}
 
 }
